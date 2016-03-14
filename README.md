@@ -27,3 +27,4 @@ To watch some training videos, visit http://www.youtube.com/user/c9ide
 
 - 20121699 Tran Trung Hieu
 - 20122367 Vuong Chi Son
+- 20122093 Vu Duc Minh
