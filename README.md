@@ -30,3 +30,4 @@ To watch some training videos, visit http://www.youtube.com/user/c9ide
 - 20122093 Vu Duc Minh
 - 20121974 Dang My Linh
 - 20122155 Bui Lan Ngoc
+- 20112381 Nguyen Duc Trung
