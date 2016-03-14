@@ -26,3 +26,7 @@ To watch some training videos, visit http://www.youtube.com/user/c9ide
 ## チームリーダー
 
 20121699 Tran Trung Hieu
+
+## チームメンバー
+
+20121974 Dang My Linh
