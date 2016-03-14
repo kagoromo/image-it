@@ -23,6 +23,7 @@ The Cloud9 IDE team
 Visit http://docs.c9.io for support, or to learn more about using Cloud9 IDE. 
 To watch some training videos, visit http://www.youtube.com/user/c9ide
 
-## チームリーダー
+## Team members
 
 - 20121699 Tran Trung Hieu
+- 20122367 Vuong Chi Son
