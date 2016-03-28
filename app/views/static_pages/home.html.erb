@@ -4,7 +4,7 @@
     <h2>Hello, <%= current_user.email %>!</h2>
   <% else %>
     <h2>Hello guest!</h2>
-    <%= link_to "Sign up now!", user_registration_path, method: :post, 
+    <%= link_to "Sign up now!", new_user_registration_path, method: :get, 
                 class: "btn btn-lg btn-primary" %>
   <% end %>
 </div>
