@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>一GO！</title>
+    <title><%= full_title(yield(:title)) %></title>
     <%= stylesheet_link_tag 'application', media: 'all',
                                            'data-turbolinks-track' => true %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
@@ -12,27 +12,8 @@
     <![endif]-->
   </head>
 <body>
-  <header class="navbar navbar-fixed-top navbar-inverse">
-    <div class="container">
-      <%= link_to "ichigo", :root, id: "logo" %>
-      <nav>
-        <ul class="nav navbar-nav navbar-right">
-          <li><%= link_to "Home", :root %></li>
-          <% if user_signed_in? %>
-            <li><%= link_to "Edit account", edit_user_registration_path, 
-                            method: :get %></li>
-            <li><%= link_to "Log out", destroy_user_session_path, 
-                            method: :delete %></li>
-          <% else %>
-            <li><%= link_to "Log in", new_user_session_path, 
-                            method: :get %></li>
-            <li><%= link_to "Sign up", new_user_registration_path, 
-                            method: :get %></li>
-          <% end %>
-        </ul>
-      </nav>
-    </div>
-  </header>
+  <%= render 'layouts/header' %>
+  
   <div class="container">
     <%= yield %>
   </div>
