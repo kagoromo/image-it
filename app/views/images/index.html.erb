@@ -4,8 +4,8 @@
 
 <div class="row">
   <% @images.each do |image| %>
-  <div class="thumnail">
-    <div class="col-md-4">
+  <div class="col-md-4">
+    <a href="#" class="thumbnail">
       <h4><%= image.name %></h4>
       <p>
         <% if image.user.name.empty? %>
@@ -14,8 +14,8 @@
           <%= image.user.name %>
         <% end %>
       </p>
-      <%= image_tag image.file, style: "width:150px;height:150px" %>
-    </div>
+      <%= image_tag image.file, style: "width:200px;height:200px" %>
+    </a>
   </div>
   <% end %>
 </div>
