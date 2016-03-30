@@ -2,6 +2,7 @@ Rails.application.routes.draw do
 
   resources :images
   root 'images#index'
+  match 'images/:id', to: 'images#destroy', as: 'destroy_image', via: :delete
   
   devise_for :users
   resources :users, only: [:show]

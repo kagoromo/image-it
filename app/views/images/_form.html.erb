@@ -28,6 +28,7 @@
     <%= f.text_area :detail %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Submit", class: "btn btn-md btn-info" %> 
+    <%= link_to "Cancel", :back, class: "btn btn-md btn-info button" %>
   </div>
 <% end %>
