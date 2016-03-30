@@ -1,21 +1,24 @@
-<p id="notice"><%= notice %></p>
-
-<h1>Listing Images</h1>
-
-<div class="row">
-  <% @images.each do |image| %>
-  <div class="col-md-4">
-    <a href="#" class="thumbnail">
-      <h4><%= image.name %></h4>
-      <p>
-        <% if image.user.name.empty? %>
-          <%= image.user.email %>
-        <% else %>
-          <%= image.user.name %>
-        <% end %>
-      </p>
-      <%= image_tag image.file, style: "width:200px;height:200px" %>
-    </a>
+<div class="center jumbotron">
+  <p id="notice"><%= notice %></p>
+  
+  <h1>Listing Images</h1>
+  
+  <div class="row">
+    <% @images.each do |image| %>
+    <div class="col-md-4">
+      <a href=<%= image_path(id: image.id) %> class="thumbnail">
+        <h4><%= image.name %></h4>
+        <p>
+          <% if image.user.name.empty? %>
+            <%= image.user.email %>
+          <% else %>
+            <%= image.user.name %>
+          <% end %>
+        </p>
+        <%= image_tag image.file, style: "width:200px;height:200px" %>
+      </a>
+    </div>
+    <% end %>
   </div>
-  <% end %>
+
 </div>

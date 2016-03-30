@@ -34,5 +34,7 @@
   <%= @image.created_at %>
 </p>
 
-<%= link_to 'Edit', edit_image_path(@image) %> |
-<%= link_to 'Back', images_path %>
+<% if @image.user_id==current_user.id %>
+  <%= link_to 'Edit', edit_image_path(@image), class: "btn btn-md btn-info" %> |
+<% end %>
+<%= link_to 'Back', images_path, class: "btn btn-md btn-info" %>
