@@ -5,13 +5,16 @@
   <%= devise_error_messages! %>
   
   <dib class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
+    <% if current_user.avatar.url.present? %>
+      <%= image_tag current_user.avatar, class: "avatar" %>
+    <% end %><br />
+    <%= f.label "Change Avatar" %>
+    <%= f.file_field :avatar %>
   </dib>
-
+  
   <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
+    <%= f.label "Change Name" %><br />
+    <%= f.text_field :name %>
   </div>
 
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
@@ -34,12 +37,12 @@
   </div>
 
   <div class="actions">
-    <%= f.submit "Update" %>
+    <%= f.submit "Update", class: "btn btn-md btn-info" %>
+    <%= link_to "Cancel", :back, class: "btn btn-md btn-info button" %>
   </div>
 <% end %>
 
 <h3>Cancel my account</h3>
 
-<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
-
-<%= link_to "Back", :back %>
+<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete,
+              class: "btn btn-md btn-danger" %></p>

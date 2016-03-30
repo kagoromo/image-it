@@ -1,0 +1,7 @@
+<% provide(:title,user_page_button(@user.name, @user.id)) %>
+
+<div>
+    <h3><%= user_page_button(@user.name, @user.id) %></h3>
+    <%= image_tag @user.avatar, class: "avatar" %>
+    <p>Email: <%= @user.email %></p>
+</div>
