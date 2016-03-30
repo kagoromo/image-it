@@ -2,34 +2,20 @@
 
 <h1>Listing Images</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>User</th>
-      <th>Name</th>
-      <th>Title</th>
-      <th>Detail</th>
-      <th>File</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @images.each do |image| %>
-      <tr>
-        <td><%= image.user_id %></td>
-        <td><%= image.name %></td>
-        <td><%= image.title %></td>
-        <td><%= image.detail %></td>
-        <td><%= image.file %></td>
-        <td><%= link_to 'Show', image %></td>
-        <td><%= link_to 'Edit', edit_image_path(image) %></td>
-        <td><%= link_to 'Destroy', image, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Image', new_image_path %>
+<div class="row">
+  <% @images.each do |image| %>
+  <div class="thumnail">
+    <div class="col-md-4">
+      <h4><%= image.name %></h4>
+      <p>
+        <% if image.user.name.empty? %>
+          <%= image.user.email %>
+        <% else %>
+          <%= image.user.name %>
+        <% end %>
+      </p>
+      <%= image_tag image.file, style: "width:150px;height:150px" %>
+    </div>
+  </div>
+  <% end %>
+</div>
