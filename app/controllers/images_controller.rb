@@ -1,6 +1,14 @@
 class ImagesController < ApplicationController
   before_action :set_image, only: [:show, :edit, :update, :destroy]
-  # before_action :authenticate_user!
+  before_action :authenticate_user!, only: [:edit, :update, :destroy]
+  before_filter :correct_user, only: [:edit, :update, :destroy]
+  
+  # Check owner
+  def correct_user
+    if current_user != Image.find(params[:id]).user
+      redirect_to root_path
+    end
+  end
 
   # GET /images
   # GET /images.json
