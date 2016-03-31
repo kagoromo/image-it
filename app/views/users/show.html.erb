@@ -2,6 +2,6 @@
 
 <div>
     <h3><%= user_page_button(@user.name, @user.id) %></h3>
-    <%= @user.avatar.nil? %>
+    <%= image_tag @user.avatar, class: "avatar" %>
     <p>Email: <%= @user.email %></p>
 </div>
