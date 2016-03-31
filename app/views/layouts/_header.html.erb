@@ -4,8 +4,8 @@
       <nav>
         <ul class="nav navbar-nav navbar-right">
           <li><%= link_to "Home", :root %></li>
-          <li><%= link_to user_page_button(current_user.name, current_user.id), user_path(current_user.id) %></li>
           <% if user_signed_in? %>
+            <li><%= link_to user_page_button(current_user.name, current_user.id), user_path(current_user.id) %></li>
             <li><%= link_to "Upload Image", new_image_path %></li>
             <li><%= link_to "Edit account", edit_user_registration_path, 
                             method: :get %></li>

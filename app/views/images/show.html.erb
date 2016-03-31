@@ -8,9 +8,9 @@
 <p>
   <strong>User:</strong>
   <% if @image.user.name.empty? %>
-    <%= @image.user.email %>
+    <%= link_to @image.user.email, user_path(@image.user.id) %>
   <% else %>
-    <%= @image.user.name %>
+    <%= link_to @image.user.name, user_path(@image.user.id) %>
   <% end %>
 </p>
 
@@ -34,7 +34,7 @@
   <%= @image.created_at %>
 </p>
 
-<% if @image.user_id==current_user.id %>
+<% if user_signed_in?&&@image.user_id==current_user.id %>
   <%= link_to 'Edit', edit_image_path(@image), class: "btn btn-md btn-info button" %> 
   <%= link_to "Delete", destroy_image_path(@image.id), data: { confirm: "Are you sure?" }, method: :delete,
               class: "btn btn-md btn-danger button" %> 
