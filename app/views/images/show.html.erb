@@ -1,0 +1,42 @@
+<% provide(:title, @image.name) %>
+<p id="notice"><%= notice %></p>
+
+<p>
+  <%= image_tag @image.file, class: "images" %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <% if @image.user.name.empty? %>
+    <%= link_to @image.user.email, user_path(@image.user.id) %>
+  <% else %>
+    <%= link_to @image.user.name, user_path(@image.user.id) %>
+  <% end %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @image.name %>
+</p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @image.title %>
+</p>
+
+<p>
+  <strong>Detail:</strong>
+  <%= @image.detail %>
+</p>
+
+<p>
+  <strong>Created at:</strong>
+  <%= @image.created_at %>
+</p>
+
+<% if user_signed_in?&&@image.user_id==current_user.id %>
+  <%= link_to 'Edit', edit_image_path(@image), class: "btn btn-md btn-info button" %> 
+  <%= link_to "Delete", destroy_image_path(@image.id), data: { confirm: "Are you sure?" }, method: :delete,
+              class: "btn btn-md btn-danger button" %> 
+<% end %>
+<%= link_to 'Back', images_path, class: "btn btn-md btn-info button" %>
