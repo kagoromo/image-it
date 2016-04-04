@@ -1,5 +1,14 @@
 class ImageCommentsController < ApplicationController
   before_action :set_image_comment, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, only: [:edit, :update, :destroy]
+  before_filter :correct_user, only: [:edit, :update, :destroy]
+  
+  # Check owner
+  def correct_user
+    if current_user != ImageComment.find(params[:id]).user
+      redirect_to set_url
+    end
+  end
 
   # GET /image_comments
   # GET /image_comments.json

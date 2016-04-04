@@ -10,7 +10,7 @@
       <%= link_to comment.user.name, user_path(comment.user.id) %>
     <% end %> at <%= comment.created_at %></i>
     <% if user_signed_in? && check_owner(comment.user_id) %>
-      <%= link_to 'Edit', edit_image_comment_path(comment.id), remote: true %>
+      <%= link_to 'Edit', edit_image_comment_path(comment.id), remote: true, class: "btn btn-sm btn-info button" %>
       <div id="edit-form" style="display:none;"></div>
       <%= link_to "Delete", destroy_comment_path(comment.id), data: { confirm: "Are you sure?" }, method: :delete,
                 class: "btn btn-sm btn-danger button" %>

@@ -20,4 +20,9 @@ module ApplicationHelper
     def check_owner(id=0)
         id == current_user.id
     end
+    
+    def check_current_page
+        request.url[-4..-1]=='edit'
+    end
+    
 end
