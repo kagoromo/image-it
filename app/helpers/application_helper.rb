@@ -16,4 +16,8 @@ module ApplicationHelper
             current_name
         end
     end
+    
+    def check_owner(id=0)
+        id == current_user.id
+    end
 end

@@ -34,9 +34,13 @@
   <%= @image.created_at %>
 </p>
 
-<% if user_signed_in?&&@image.user_id==current_user.id %>
-  <%= link_to 'Edit', edit_image_path(@image), class: "btn btn-md btn-info button" %> 
-  <%= link_to "Delete", destroy_image_path(@image.id), data: { confirm: "Are you sure?" }, method: :delete,
-              class: "btn btn-md btn-danger button" %> 
+<% if user_signed_in? %>
+  <% if @image.user_id==current_user.id %>
+    <%= link_to 'Edit', edit_image_path(@image), class: "btn btn-md btn-info button" %> 
+    <%= link_to "Delete", destroy_image_path(@image.id), data: { confirm: "Are you sure?" }, method: :delete,
+                class: "btn btn-md btn-danger button" %>
+  <% end %>
+  <%= render 'image_comments/new' %>
 <% end %>
+<%= render 'image_comments/show' %>
 <%= link_to 'Back', images_path, class: "btn btn-md btn-info button" %>

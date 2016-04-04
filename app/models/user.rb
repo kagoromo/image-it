@@ -6,6 +6,7 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
   has_many :images, dependent: :destroy
+  has_many :image_comments
   # attr_accessor :email, :password, :remember_me, :avatar, :avatar_cache, :remove_avatar
   
   # validates_presence_of :avatar
