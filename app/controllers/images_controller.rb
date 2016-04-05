@@ -20,6 +20,7 @@ class ImagesController < ApplicationController
   # GET /images/1.json
   def show
     @image = Image.find(params[:id])
+    @image_comment = ImageComment.new
   end
 
   # GET /images/new

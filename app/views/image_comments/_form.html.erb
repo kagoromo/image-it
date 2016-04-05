@@ -1,0 +1,28 @@
+<%= form_for(@image_comment) do |f| %>
+  <% if @image_comment.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@image_comment.errors.count, "error") %> prohibited this image_comment from being saved:</h2>
+
+      <ul>
+      <% @image_comment.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <div class="field">
+    <%= f.label :comment %><br>
+    <%= f.text_field :comment %>
+    <% unless check_current_page %>
+      <%= f.hidden_field :image_id, :value => @image.id %>
+    <% end %>
+  </div>
+  
+  <div class="actions">
+    <%= f.submit "Submit", class: "btn btn-md btn-info" %>
+    <% if check_current_page %>
+      <%= link_to "Cancel", :back, class: "btn btn-md btn-info button" %>
+    <% end %>
+  </div>
+<% end %>
