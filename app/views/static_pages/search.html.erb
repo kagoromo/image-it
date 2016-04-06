@@ -1,2 +1,24 @@
-<h1>StaticPages#search</h1>
-<p>Find me in app/views/static_pages/search.html.erb</p>
+<% if search_images_by_name.present? || search_images_by_title.present? || 
+search_users_by_name.present? || search_users_by_email.present? %>
+Found!
+    <% if search_images_by_name.present? || search_images_by_title.present? %>
+        <hr />
+        <h3>Images Found</h3>
+        <h4>By name</h4>
+        <%= render 'iname' %>
+        <hr />
+        <h4>By title</h4>
+        <%= render 'ititle' %>
+    <% end %>
+    <% if search_users_by_name.present? || search_users_by_email.present? %>
+        <hr />
+        <h3>Users Found</h3>
+        <h4>By name</h4>
+        <%= render 'uname' %>
+        <hr />
+        <h4>By email</h4>
+        <%= render 'uemail' %>
+    <% end %>
+<% else %>
+    Not found!
+<% end %>

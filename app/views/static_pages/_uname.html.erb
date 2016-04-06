@@ -1,0 +1,6 @@
+<% search_users_by_name.each do |user| %>
+  <a href=<%= user_path(user.id) %> >
+      <p><b class="result"><%= user.name %></b></p>
+      <p><%= user.email %></p>
+  </a>
+<% end %>

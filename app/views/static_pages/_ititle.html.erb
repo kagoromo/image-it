@@ -1,0 +1,18 @@
+<div class="row">
+<% search_images_by_title.each do |image| %>
+    <div class="col-md-4">
+      <a href=<%= image_path(id: image.id) %> class="thumbnail">
+        <h4><%= image.name %></h4>
+        <p>
+          <% if image.user.name.empty? %>
+            <%= image.user.email %>
+          <% else %>
+            <%= image.user.name %>
+          <% end %>
+        </p>
+        <%= image_tag image.file, style: "width:200px;height:200px" %>
+        <b class="result"><%= image.title %></b>
+      </a>
+    </div>
+<% end %>
+</div>

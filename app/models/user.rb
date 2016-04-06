@@ -12,4 +12,9 @@ class User < ActiveRecord::Base
   # validates_presence_of :avatar
   # validates_integrity_of :avatar
   # validates_processing_of :avatar
+  
+  def self.search(catergory, search)
+    where("#{catergory} LIKE ?", "%#{search}%")
+  end
+  
 end

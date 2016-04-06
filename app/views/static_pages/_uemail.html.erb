@@ -1,0 +1,8 @@
+<% search_users_by_email.each do |user| %>
+  <a href=<%= user_path(user.id) %> >
+      <% unless user.name.empty? %>
+        <p><%= user.name %></p>
+      <% end %>
+      <p><b class="result"><%= user.email %></b></p>
+  </a>
+<% end %>
