@@ -1,4 +1,13 @@
 <%= form_tag(static_pages_search_path, method: "get") do %>
-  <%= text_field_tag :search, params[:search] %>
-  <%= submit_tag("Search") %>
+  <div id="custom-search-input">
+    <div class="input-group col-md-12">
+        <%= text_field_tag :search, params[:search], class: "input-lg col-md-12", placeholder: "Search" %>
+        <span class="input-group-btn">
+          <button class="btn btn-info btn-lg">
+            <%= submit_tag("", style: "display: none") %>
+            <i class="glyphicon glyphicon-search"></i>
+          </button>
+        </span>
+    </div>
+  </div>
 <% end %>
