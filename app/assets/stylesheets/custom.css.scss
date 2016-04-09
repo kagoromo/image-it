@@ -76,8 +76,8 @@ p {
 
 #logo {
   float: left;
-  margin-right: 10px;
-  font-size: 1.7em;
+  margin: 5px;
+  font-size: 2em;
   color: #fff;
   text-transform: uppercase;
   letter-spacing: -1px;
@@ -88,4 +88,44 @@ p {
 #logo:hover {
   color: #fff;
   text-decoration: none;
+  background: none;
+}
+
+/* search bar */
+
+#custom-search-input{
+    padding: 3px;
+    border: solid 1px #E4E4E4;
+    border-radius: 6px;
+    background-color: #fff;
+    height: 40px;
+    input {
+        border: 0;
+        box-shadow: none;
+        height: 35px;
+    }
+    button {
+        margin: 2px 0 0 0;
+        background: none;
+        box-shadow: none;
+        border: 0;
+        color: #666666;
+        padding: 0 8px 0 10px;
+        border-left: solid 1px #ccc;
+        &:hover {
+            border: 0;
+            box-shadow: none;
+            border-left: solid 1px #ccc;
+        }
+    }
+    .glyphicon-search {
+        font-size: 23px;
+    }
+}
+
+.custom-search {
+  float: left;
+  margin-top: 5px;
+  margin-left: 15px;
+  width: 500px;
 }

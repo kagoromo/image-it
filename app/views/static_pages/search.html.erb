@@ -1,0 +1,26 @@
+<% if search_images_by_name.present? || search_images_by_title.present? || 
+search_users_by_name.present? || search_users_by_email.present? %>
+<p class="alert alert-success">Result Found!</p>
+    <% if search_images_by_name.present? || search_images_by_title.present? %>
+        <hr />
+        <h3>Images Found</h3>
+        <h4>By name</h4>
+        <%= render 'iname' %>
+        <hr />
+        <h4>By title</h4>
+        <%= render 'ititle' %>
+    <% end %>
+    <% if search_users_by_name.present? || search_users_by_email.present? %>
+        <hr />
+        <h3>Users Found</h3>
+        <h4>By name</h4>
+        <%= render 'uname' %>
+        <hr />
+        <h4>By email</h4>
+        <%= render 'uemail' %>
+    <% end %>
+<% elsif params[:search].empty? %>
+    <p class="alert alert-warning">You should write in searchbox</p>
+<% else %>
+    <p class="alert alert-warning">Not Found!</p>
+<% end %>

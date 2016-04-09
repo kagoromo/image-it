@@ -40,7 +40,8 @@
     <%= link_to "Delete", destroy_image_path(@image.id), data: { confirm: "Are you sure?" }, method: :delete,
                 class: "btn btn-md btn-danger button" %>
   <% end %>
-  <%= render 'image_comments/new' %>
+  <div id="comment-box"><%= render 'image_comments/new' %></div>
+  <div id="edit-form" style="display:none;"></div>
 <% end %>
 <%= render 'image_comments/show' %>
 <%= link_to 'Back', images_path, class: "btn btn-md btn-info button" %>
