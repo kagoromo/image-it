@@ -21,3 +21,6 @@
 
 # Ignore uploaded images.
 /public/uploads
+config.codekit
+.codekit-cache
+.sass-cache
