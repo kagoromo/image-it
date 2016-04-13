@@ -3,6 +3,14 @@
 
 /* mixins, variables... */
 
+$gray-medium-light: #eaeaea;
+
+@mixin box_sizing {
+  -moz-box-sizing:    border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing:         border-box;
+}
+
 /* universal */
 
 body {
@@ -19,15 +27,23 @@ textarea {
 
 .center {
   text-align: center;
+  h1 {
+    margin-bottom: 10px;
+  }
 }
 
-.center h1 {
-  margin-bottom: 10px;
+.jumbotron {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+#images_index {
+  margin-bottom: 40px;
 }
 
 .avatar {
-  width: 200px;
-  height: 200px;
+  width: 250px;
+  height: 250px;
   border-style: solid;
   border-width: 3px;
 }
@@ -127,19 +143,31 @@ p {
   float: left;
   margin-top: 5px;
   margin-left: 15px;
-  width: 500px;
+  min-width: 50%;
+  max-width: 75%;
+}
+
+#search {
+  padding: 0px 10px !important;
+  font-size: 1.25em;
+  font-weight: bold;
+  line-height: 2em;
+}
+
+#search-icon {
+  top: -8px;
 }
 
 /* pagination */
 .pagination {
   a {
-    color: #777!important;
+    color: #777 !important;
   }
 }
 
 .active span {
-    background-color: #555!important;
-    border: 1px solid #DDD!important;
+    background-color: #555 !important;
+    border: 1px solid #DDD !important;
 }
 
 /* bookmark */
@@ -195,4 +223,74 @@ p {
       color: red;
     }
   }
+}
+
+.image-name {
+  font-size: 2em;
+  font-weight: bold;
+}
+
+.user-name {
+  font-size: 1.25em;
+  font-color: #333;
+}
+
+.image-div {
+  padding-top: 10px;
+  margin: auto;
+  height: 250px;
+  width: 250px;
+}
+.image-preview {
+  max-height: 240px !important;
+  max-width: 240px !important;
+}
+
+/* forms */
+
+input, textarea, select, .uneditable-input {
+  border: 1px solid #bbb;
+  width: 100%;
+  margin-bottom: 15px;
+  @include box_sizing;
+}
+
+input {
+  height: auto !important;
+}
+
+#entry_title {
+  height: 50% !important;
+}
+#error_explanation {
+  color: red;
+  ul {
+    color: red;
+    margin: 0 0 30px 0;
+  }
+}
+
+.field_with_errors {
+  @extend .has-error;
+  .form-control {
+    color: $state-danger-text;
+  }
+}
+
+.checkbox {
+  #user_remember_me {
+    width: auto;
+    margin-left: 0px;
+  }
+  margin-top: -10px;
+  margin-bottom: 10px;
+  span {
+    margin-left: 20px;
+    font-weight: normal;
+  }
+}
+
+#session_remember_me {
+  width: auto;
+  margin-left: 0;
 }

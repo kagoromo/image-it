@@ -1,6 +1,13 @@
-<% search_users_by_name.each do |user| %>
-  <a href=<%= user_path(user.id) %> >
-      <p><b class="result"><%= user.name %></b></p>
-      <p><%= user.email %></p>
-  </a>
-<% end %>
+<div class="center jumbotron">
+  <div class="row">
+    <% search_users_by_name.each do |user| %>
+      <a href=<%= user_path(user.id) %> >
+          <div class="col-md-3 left-part thumbnail">
+            <h3><%= user_page_button(user.name, user.id) %></h3>
+            <p><%= user.email %></p>
+            <%= image_tag user.avatar, class: "avatar" %>
+          </div>
+      </a>
+    <% end %>
+  </div>
+</div>

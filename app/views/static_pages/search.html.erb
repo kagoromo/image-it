@@ -2,7 +2,6 @@
 search_users_by_name.present? || search_users_by_email.present? %>
 <p class="alert alert-success">Result Found!</p>
     <% if search_images_by_name.present? || search_images_by_title.present? %>
-        <hr />
         <h3>Images Found</h3>
         <h4>By name</h4>
         <%= render 'iname' %>

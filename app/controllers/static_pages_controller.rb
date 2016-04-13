@@ -29,9 +29,9 @@ class StaticPagesController < ApplicationController
     @result = data.all
   end
   
-  def set_search(data, catergory)
+  def set_search(data, category)
     unless params[:search].empty?
-      @result = data.search(catergory, params[:search]).order("created_at DESC")
+      @result = data.search(category, params[:search]).order("created_at DESC")
     else
       @result = nil
     end

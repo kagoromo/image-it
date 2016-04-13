@@ -1,13 +1,16 @@
-<div class="col-md-4">
-      <a href=<%= image_path(id: image.id) %> class="thumbnail">
-        <h4><%= image.name %></h4>
-        <p>
-          <% if image.user.name.empty? %>
-            <%= image.user.email %>
-          <% else %>
-            <%= image.user.name %>
-          <% end %>
-        </p>
-        <%= image_tag image.file, style: "width:200px;height:200px" %>
-      </a>
-    </div>
+<div class="image-name">
+  <%= link_to image.name, image_path(id: image.id) %> 
+</div>
+<div class="user-name">
+  <%= link_to image.title, image_path(id: image.id) %> 
+</div>
+<div class="user-name">
+  Submitted by <% if image.user.name.empty? %>
+    <%= link_to image.user.email, image.user %>
+  <% else %>
+    <%= link_to image.user.name, image.user %>
+  <% end %>
+</div>
+<div class="image-div">
+  <%= link_to(image_tag(image.file, :class => "image-preview"), image_path(id: image.id)) %>
+</div>

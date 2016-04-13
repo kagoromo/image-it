@@ -13,7 +13,7 @@ class ImagesController < ApplicationController
   # GET /images
   # GET /images.json
   def index
-    @images = Image.paginate(page: params[:page], per_page: 6)
+    @images = Image.paginate(page: params[:page], per_page: 9)
   end
 
   # GET /images/1
@@ -40,10 +40,16 @@ class ImagesController < ApplicationController
 
     respond_to do |format|
       if @image.save
-        format.html { redirect_to @image, notice: 'Image was successfully created.' }
+        format.html { 
+          redirect_to @image
+          flash[:success] = 'Image was successfully submitted!'
+        }
         format.json { render :show, status: :created, location: @image }
       else
-        format.html { render :new }
+        format.html {
+          render :new
+          flash[:danger] = "Failed to submit image!"
+        }
         format.json { render json: @image.errors, status: :unprocessable_entity }
       end
     end
@@ -54,10 +60,16 @@ class ImagesController < ApplicationController
   def update
     respond_to do |format|
       if @image.update(image_params)
-        format.html { redirect_to @image, notice: 'Image was successfully updated.' }
+        format.html { 
+          redirect_to @image
+          flash[:success] = 'Image was successfully updated!'
+        }
         format.json { render :show, status: :ok, location: @image }
       else
-        format.html { render :edit }
+        format.html { 
+          render :edit 
+          flash[:danger] = "Failed to updatet image!"
+        }
         format.json { render json: @image.errors, status: :unprocessable_entity }
       end
     end
@@ -68,7 +80,10 @@ class ImagesController < ApplicationController
   def destroy
     @image.destroy
     respond_to do |format|
-      format.html { redirect_to images_url, notice: 'Image was successfully destroyed.' }
+      format.html { 
+        redirect_to images_url
+        flash[:success] = 'Image was successfully deleted!'
+      }
       format.json { head :no_content }
     end
   end

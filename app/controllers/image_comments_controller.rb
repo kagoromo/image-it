@@ -38,10 +38,16 @@ class ImageCommentsController < ApplicationController
 
     respond_to do |format|
       if @image_comment.save
-        format.html { redirect_to set_url, notice: 'Image comment was successfully created.' }
+        format.html { 
+          redirect_to set_url
+          flash[:success] = 'Image comment was successfully submitted!'
+        }
         format.json { render :show, status: :created, location: @image_comment }
       else
-        format.html { render :new }
+        format.html { 
+          redirect_to set_url
+          flash[:danger] = "Failed to submit comment!"
+        }
         format.json { render json: @image_comment.errors, status: :unprocessable_entity }
       end
     end
@@ -52,10 +58,16 @@ class ImageCommentsController < ApplicationController
   def update
     respond_to do |format|
       if @image_comment.update(image_comment_params)
-        format.html { redirect_to set_url, notice: 'Image comment was successfully updated.' }
+        format.html { 
+          redirect_to set_url
+          flash[:success] = 'Image comment was successfully updated!'
+        }
         format.json { render :show, status: :ok, location: @image_comment }
       else
-        format.html { render :edit }
+        format.html { 
+          redirect_to set_url
+          flash[:danger] = "Failed to update comment!"
+        }
         format.json { render json: @image_comment.errors, status: :unprocessable_entity }
       end
     end
@@ -66,7 +78,10 @@ class ImageCommentsController < ApplicationController
   def destroy
     @image_comment.destroy
     respond_to do |format|
-      format.html { redirect_to set_url, notice: 'Image comment was successfully destroyed.' }
+      format.html { 
+          redirect_to set_url
+          flash[:success] = 'Image comment was successfully deleted!'
+        }
       format.json { head :no_content }
     end
   end
