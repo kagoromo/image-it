@@ -4,6 +4,7 @@ class Image < ActiveRecord::Base
     validates :user_id, presence: true
     belongs_to :user
     has_many :image_comment, -> {order(created_at: :desc)}, dependent: :destroy
+    acts_as_votable
     
     def self.search(catergory, search)
         where("#{catergory} LIKE ?", "%#{search}%")

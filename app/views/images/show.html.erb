@@ -35,6 +35,18 @@
 </p>
 
 <% if user_signed_in? %>
+  
+  <% unless current_user.liked? @image %>
+    <%= link_to like_image_path(@image), class: "bookmark", method: :put do %>
+      <span class="glyphicon glyphicon-star-empty bookmark-icon bookmarked"></span>
+    <% end %>
+  <% else %>
+    <%= link_to dislike_image_path(@image), class: "bookmark", method: :put do %>
+      <span class="glyphicon glyphicon-star bookmark-icon unbookmark"></span>
+    <% end %>
+  <% end %>
+  <%= @image.get_upvotes.size %>
+
   <% if @image.user_id==current_user.id %>
     <%= link_to 'Edit', edit_image_path(@image), class: "btn btn-md btn-info button" %> 
     <%= link_to "Delete", destroy_image_path(@image.id), data: { confirm: "Are you sure?" }, method: :delete,

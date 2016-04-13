@@ -141,3 +141,14 @@ p {
     background-color: #555!important;
     border: 1px solid #DDD!important;
 }
+
+/* bookmark */
+.bookmark {
+  &:hover {
+    background: none;
+  }
+  .bookmark-icon {
+    font-size: 5em;
+    color: yellow;
+  }
+}
