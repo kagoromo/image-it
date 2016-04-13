@@ -34,26 +34,36 @@
   <%= @image.created_at %>
 </p>
 
-<% if user_signed_in? %>
-  
-  <% unless current_user.liked? @image %>
-    <%= link_to like_image_path(@image), class: "bookmark", method: :put do %>
-      <span class="glyphicon glyphicon-star-empty bookmark-icon bookmarked"></span>
+<div class="bookmark">
+  <span class="bookmark-num"><%= @image.get_upvotes.size %></span>
+  <% if user_signed_in? %>
+    
+    <% unless current_user.liked? @image %>
+      <%= link_to like_image_path(@image), class: "bookmark", method: :put do %>
+        <span class="twa twa-green-apple twa-4x"></span>
+        <div class="label label-info">Bookmark</div>
+      <% end %>
+    <% else %>
+      <%= link_to dislike_image_path(@image), class: "bookmark", method: :put do %>
+        <span class="twa twa-apple twa-4x"></span>
+        <div class="label label-info">Unbookmark</div>
+      <% end %>
     <% end %>
   <% else %>
-    <%= link_to dislike_image_path(@image), class: "bookmark", method: :put do %>
-      <span class="glyphicon glyphicon-star bookmark-icon unbookmark"></span>
-    <% end %>
+    <span class="twa twa-apple twa-4x"></span>
+    <div class="label label-info">Bookmarked</div>
   <% end %>
-  <%= @image.get_upvotes.size %>
+</div>
 
+<% if user_signed_in? %>
   <% if @image.user_id==current_user.id %>
     <%= link_to 'Edit', edit_image_path(@image), class: "btn btn-md btn-info button" %> 
     <%= link_to "Delete", destroy_image_path(@image.id), data: { confirm: "Are you sure?" }, method: :delete,
                 class: "btn btn-md btn-danger button" %>
   <% end %>
-  <div id="comment-box"><%= render 'image_comments/new' %></div>
-  <div id="edit-form" style="display:none;"></div>
 <% end %>
+
+<hr />
+
 <%= render 'image_comments/show' %>
 <%= link_to 'Back', images_path, class: "btn btn-md btn-info button" %>
