@@ -72,6 +72,18 @@ class ImagesController < ApplicationController
       format.json { head :no_content }
     end
   end
+  
+  def upvote
+    set_image
+    @image.upvote_by current_user
+    redirect_to :back
+  end
+  
+  def downvote
+    set_image
+    @image.downvote_by current_user
+    redirect_to :back
+  end
 
   private
     # Use callbacks to share common setup or constraints between actions.

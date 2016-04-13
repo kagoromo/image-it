@@ -11,16 +11,15 @@
     </div>
   <% end %>
   
-  <div class="field">
-    <%= f.label :comment %><br>
-    <%= f.text_field :comment %>
+  <div class="field col-md-11 left-part">
+    <%= f.text_area :comment, class: "comment-field", placeholder: "Comment" %>
     <% unless check_current_page %>
       <%= f.hidden_field :image_id, :value => @image.id %>
     <% end %>
   </div>
   
-  <div class="actions">
-    <%= f.submit "Submit", class: "btn btn-md btn-info" %>
+  <div class="actions col-md-1 right-part">
+    <%= f.submit "Submit", class: "btn btn-md btn-info comment-button" %>
     <% if check_current_page %>
       <%= link_to "Cancel", :back, class: "btn btn-md btn-info button" %>
     <% end %>

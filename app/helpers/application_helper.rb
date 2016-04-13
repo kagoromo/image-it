@@ -10,8 +10,17 @@ module ApplicationHelper
     
     def user_page_button(current_name='', current_id=0)
         base_name='Anonymous'
-        if(current_name.empty?)
+        if current_name.empty?
             base_name+" "+current_id.to_s
+        else
+            current_name
+        end
+    end
+    
+    def user_name(current_name='')
+        base_name=current_name
+        if current_name.length>12
+            base_name=current_name[1..12]
         else
             current_name
         end

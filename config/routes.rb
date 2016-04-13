@@ -3,7 +3,13 @@ Rails.application.routes.draw do
   get 'static_pages/search'
 
   resources :image_comments
-  resources :images
+  resources :images do
+    member do
+      put "like", to: "images#upvote"
+      put "dislike", to: "images#downvote"
+    end
+  end
+  
   root 'images#index'
   match 'images/:id', to: 'images#destroy', as: 'destroy_image', via: :delete
   match 'image_comments/:id', to: 'image_comments#destroy', as: 'destroy_comment', via: :delete

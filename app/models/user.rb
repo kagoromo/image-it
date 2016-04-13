@@ -7,6 +7,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
   has_many :images, dependent: :destroy
   has_many :image_comments
+  acts_as_voter
   # attr_accessor :email, :password, :remember_me, :avatar, :avatar_cache, :remove_avatar
   
   # validates_presence_of :avatar

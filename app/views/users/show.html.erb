@@ -18,5 +18,17 @@
             </div>
             <% end %>
         </div>
+        <hr/>
+        <h3><%= user_page_button(@user.name, @user.id) %>'s Bookmarked Images</h3>
+        <div class="row">
+            <% @user.find_liked_items.each do |image| %>
+            <div class="col-md-4">
+                <a href=<%= image_path(image.id) %> class="thumbnail">
+                    <h4><%= image.name %></h4>
+                    <%= image_tag image.file, style: "width:200px;height:200px" %>
+                </a>
+            </div>
+            <% end %>
+        </div>
     </div>
 </div>
