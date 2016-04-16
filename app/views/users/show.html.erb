@@ -1,13 +1,13 @@
-<% provide(:title,user_page_button(@user.name, @user.id)) %>
+<% provide(:title,user_name(@user)) %>
 <div class="row">
     <div class="col-md-3 left-part">
-        <h3><%= link_to user_page_button(@user.name, @user.id), @user %></h3>
+        <h3><%= link_to user_name(@user), @user %></h3>
         <%= image_tag @user.avatar, class: "avatar" %>
         <p>Email: <%= @user.email %></p>
     </div>
     
     <div class="col-md-9 right-part">
-        <h3><%= user_page_button(@user.name, @user.id) %>'s Gallery</h3>
+        <h3><%= user_name(@user) %>'s Gallery</h3>
         <div class="row">
             <% @user.images.each do |image| %>
             <div class="col-md-4">
@@ -19,7 +19,7 @@
             <% end %>
         </div>
         <hr/>
-        <h3><%= user_page_button(@user.name, @user.id) %>'s Bookmarked Images</h3>
+        <h3><%= user_name(@user) %>'s Bookmarked Images</h3>
         <div class="row">
             <% @user.find_liked_items.each do |image| %>
             <div class="col-md-4">
