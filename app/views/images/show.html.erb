@@ -3,7 +3,7 @@
 
 <div class="row">
   <div class="col-md-3 left-part">
-    <h3><%= link_to user_page_button(@image.user.name, @image.user.id), @image.user %></h3>
+    <h3><%= link_to user_name(@image.user), @image.user %></h3>
     <%= image_tag @image.user.avatar, class: "avatar" %>
     <p>Email: <%= @image.user.email %></p>
   </div>

@@ -8,21 +8,21 @@ module ApplicationHelper
         end
     end
     
-    def user_page_button(current_name='', current_id=0)
+    def user_name(user)
         base_name='Anonymous'
-        if current_name.empty?
-            base_name+" "+current_id.to_s
+        if user.name.empty?
+            base_name+" "+user.id.to_s
         else
-            current_name
+            user.name
         end
     end
     
-    def user_name(current_name='')
-        base_name=current_name
-        if current_name.length>12
-            base_name=current_name[1..12]
+    def user_page_button(user)
+        base_name=user_name(user)
+        if user.name.length>12
+            base_name[0..11]
         else
-            current_name
+            base_name
         end
     end
     
