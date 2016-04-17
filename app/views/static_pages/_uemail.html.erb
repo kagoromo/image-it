@@ -3,7 +3,7 @@
     <% search_users_by_email.each do |user| %>
       <a href=<%= user_path(user.id) %> >
           <div class="col-md-3 left-part thumbnail">
-            <h3><%= user_page_button(user.name, user.id) %></h3>
+            <h3><%= user_page_button(user) %></h3>
             <p><%= user.email %></p>
             <%= image_tag user.avatar, class: "avatar" %>
           </div>

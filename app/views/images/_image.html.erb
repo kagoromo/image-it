@@ -5,7 +5,7 @@
   <%= link_to image.title, image_path(id: image.id) %> 
 </div>
 <div class="user-name">
-  Submitted by <% if image.user.name.empty? %>
+  By <% if image.user.name.empty? %>
     <%= link_to image.user.email, image.user %>
   <% else %>
     <%= link_to image.user.name, image.user %>
