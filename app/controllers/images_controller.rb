@@ -42,13 +42,13 @@ class ImagesController < ApplicationController
       if @image.save
         format.html { 
           redirect_to @image
-          flash[:success] = 'Image was successfully submitted!'
+          flash.now[:success] = 'Image was successfully submitted!'
         }
         format.json { render :show, status: :created, location: @image }
       else
         format.html {
           render :new
-          flash[:danger] = "Failed to submit image!"
+          flash.now[:danger] = "Failed to submit image!"
         }
         format.json { render json: @image.errors, status: :unprocessable_entity }
       end
