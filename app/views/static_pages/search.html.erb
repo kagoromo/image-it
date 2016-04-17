@@ -19,7 +19,7 @@ search_users_by_name.present? || search_users_by_email.present? %>
         <%= render 'uemail' %>
     <% end %>
 <% elsif params[:search].empty? %>
-    <p class="alert alert-warning">You should write in searchbox</p>
+    <p class="alert alert-warning">Enter a search term to get started!</p>
 <% else %>
-    <p class="alert alert-warning">Not Found!</p>
+    <p class="alert alert-warning">Not found!</p>
 <% end %>
