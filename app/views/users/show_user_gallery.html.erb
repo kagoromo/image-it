@@ -1,0 +1,13 @@
+<div class="row">
+    <% @user.images.each do |image| %>
+    <div class="col-md-4">
+        <a href=<%= image_path(image.id) %> class="thumbnail image-div">
+            <h4><%= image.name %></h4>
+            <%= image_tag image.file, style: "max-width:200px;max-height:200px" %>
+        </a>
+    </div>
+    <% end %>
+    <div class="pagination">
+      <%= will_paginate @userimg, renderer: BootstrapPagination::Rails %>
+    </div>
+</div>

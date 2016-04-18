@@ -12,4 +12,6 @@ Rails.application.routes.draw do
   end
   match 'images/:id', to: 'images#destroy', as: 'destroy_image', via: :delete
   match 'image_comments/:id', to: 'image_comments#destroy', as: 'destroy_comment', via: :delete
+  match 'users/:id/show_user_gallery/', to: 'users#show_user_gallery', as: 'users_show_user_gallery', via: :get
+  match 'users/:id/show_user_bookmark/', to: 'users#show_user_bookmark', as: 'users_show_user_bookmark', via: :get
 end
