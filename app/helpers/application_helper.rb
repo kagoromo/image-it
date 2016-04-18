@@ -34,4 +34,8 @@ module ApplicationHelper
         request.url[-4..-1]=='edit'
     end
     
+    def check_header
+        request.path[-17..-1]=='show_user_gallery'||request.path[-18..-1]=='show_user_bookmark'
+    end
+    
 end

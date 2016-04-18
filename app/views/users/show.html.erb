@@ -8,27 +8,9 @@
     
     <div class="col-md-9 right-part">
         <h3><%= user_name(@user) %>'s Gallery</h3>
-        <div class="row">
-            <% @user.images.each do |image| %>
-            <div class="col-md-4">
-                <a href=<%= image_path(image.id) %> class="thumbnail image-div">
-                    <h4><%= image.name %></h4>
-                    <%= image_tag image.file, style: "max-width:200px;max-height:200px" %>
-                </a>
-            </div>
-            <% end %>
-        </div>
+        <iframe src=<%= users_show_user_gallery_path(@user.id) %>></iframe>
         <hr/>
         <h3><%= user_name(@user) %>'s Bookmarked Images</h3>
-        <div class="row">
-            <% @user.find_liked_items.each do |image| %>
-            <div class="col-md-4">
-                <a href=<%= image_path(image.id) %> class="thumbnail image-div">
-                    <h4><%= image.name %></h4>
-                    <%= image_tag image.file, style: "max-width:200px;max-height:200px" %>
-                </a>
-            </div>
-            <% end %>
-        </div>
+        <iframe src=<%= users_show_user_bookmark_path %>></iframe>
     </div>
 </div>
