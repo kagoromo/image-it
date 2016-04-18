@@ -1,6 +1,6 @@
 <div class="row">
-    <% @user.find_liked_items.each do |image| %>
-    <div class="col-md-4">
+    <% @userimg.each do |image| %>
+    <div class="col-sm-4">
         <a href=<%= image_path(image.id) %> class="thumbnail image-div">
             <h4><%= image.name %></h4>
             <%= image_tag image.file, style: "max-width:200px;max-height:200px" %>

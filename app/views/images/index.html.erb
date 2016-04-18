@@ -1,13 +1,13 @@
 <div class="center jumbotron">
   <h1 id="images_index">All Desserts</h1>
   <div class="row">
-    <% if @images.any? %>
+    <% #if @images.any? %>
       <% @images.each do |image| %>
         <div class="col-md-4 thumbnail">
           <%= render 'image', image: image %>
         </div>
       <% end %>
-    <% end %>
+    <% #end %>
   </div>
   <div class="pagination">
     <%= will_paginate @images, renderer: BootstrapPagination::Rails %>
