@@ -9,7 +9,7 @@
         </div>
         <% end %>
     <% end %>
-    <div class="pagination">
-      <%= will_paginate @userimg, renderer: BootstrapPagination::Rails %>
-    </div>
+</div>
+<div class="pagination">
+  <%= will_paginate @userimg, class: "pagination", renderer: BootstrapPagination::Rails %>
 </div>

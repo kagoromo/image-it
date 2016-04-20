@@ -19,8 +19,8 @@ module ApplicationHelper
     
     def user_page_button(user)
         base_name=user_name(user)
-        if user.name.length>12
-            base_name[0..11]
+        if user.name.length>14
+            base_name[0..13]+"..."
         else
             base_name
         end
