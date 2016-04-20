@@ -19,8 +19,8 @@ module ApplicationHelper
     
     def user_page_button(user)
         base_name=user_name(user)
-        if user.name.length>12
-            base_name[0..11]
+        if user.name.length>14
+            base_name[0..13]+"..."
         else
             base_name
         end
@@ -36,6 +36,23 @@ module ApplicationHelper
     
     def check_header
         request.path[-17..-1]=='show_user_gallery'||request.path[-18..-1]=='show_user_bookmark'
+    end
+    
+    def alert_type(message)
+        case message.to_s
+            when "notice"
+                "success"
+            when "alert"
+                "warning"
+            when "error"
+                "danger"
+            else
+                "info"
+        end
+    end
+    
+    def comment_info(comment)
+        ", editted at #{comment.updated_at}" unless comment.created_at == comment.updated_at
     end
     
 end

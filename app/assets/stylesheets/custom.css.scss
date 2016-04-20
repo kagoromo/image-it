@@ -22,7 +22,7 @@ section {
 }
 
 textarea {
-  resize: vertical;
+  resize: none;
 }
 
 .center {
@@ -44,7 +44,11 @@ textarea {
 iframe {
   border: none;
   width: 100%;
-  height: 1000px;
+  height: 950px;
+}
+
+.container-fluid {
+  text-align: center;
 }
 
 .avatar {
@@ -52,6 +56,14 @@ iframe {
   height: 250px;
   border-style: solid;
   border-width: 3px;
+}
+
+.avatar-btn {
+  width: 2em;
+  height: 2em;
+  border-style: outset;
+  border-width: 1px;
+  border-color: white;
 }
 
 .button {
@@ -178,11 +190,9 @@ p {
 
 /* bookmark */
 .bookmark {
-  margin-bottom: 3px;
   div {
     font-size: 14px;
     display: none;
-    margin-top: 10px;
   }
   span:hover + div{
     display: inline;
@@ -307,4 +317,15 @@ input {
 #session_remember_me {
   width: auto;
   margin-left: 0;
+}
+
+/* image page */
+.image_body {
+  border-style: solid;
+  border-width: 1px;
+  border-color: red;
+}
+
+.image-detail {
+  min-height: 500px;
 }
