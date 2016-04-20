@@ -16,7 +16,7 @@
       <%= link_to comment.user.email, user_path(comment.user.id) %>
     <% else %>
       <%= link_to comment.user.name, user_path(comment.user.id) %>
-    <% end %> at <%= comment.created_at %></i>
+    <% end %> at <%= comment.created_at %><%= comment_info(comment) %></i>
     <% if user_signed_in? && check_owner(comment.user_id) %>
       <%= link_to 'Edit', edit_image_comment_path(comment.id), remote: true, class: "btn btn-sm btn-info button", id: "editBtn" %>
       <%= link_to "Delete", destroy_comment_path(comment.id), data: { confirm: "Are you sure?" }, method: :delete,

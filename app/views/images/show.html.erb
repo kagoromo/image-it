@@ -9,30 +9,26 @@
   </div>
   
   <div class="col-md-9 right-part">
-    <p>
-      <%= image_tag @image.file, class: "images" %>
-    </p>
     
-    <p>
-      <strong>Dessert name:</strong>
-      <%= @image.name %>
-    </p>
-    
-    <p>
-      <strong>Dessert title:</strong>
-      <%= @image.title %>
-    </p>
-    
-    <p>
-      <strong>Detail:</strong>
-      <%= @image.detail %>
-    </p>
-    
-    <p>
-      <strong>Created at:</strong>
-      <%= @image.created_at %>
-    </p>
-    
+    <h3><%= @image.name %></h3>
+    <div class="jumbotron">
+      <p>
+        <%= image_tag @image.file, class: "img-responsive" %>
+      </p>
+      <br />
+      <div>
+        <h3><%= @image.title %></h3>
+        
+        <p>
+          <%= @image.detail %>
+        </p>
+      </div>
+      
+      <hr />
+      <div style="text-align: right">
+        <i>On <%= @image.created_at %></i>
+      </div>
+    </div>
     <div class="bookmark">
       <span class="bookmark-num"><%= @image.get_upvotes.size %></span>
       <% if user_signed_in? %>

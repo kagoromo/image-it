@@ -38,4 +38,21 @@ module ApplicationHelper
         request.path[-17..-1]=='show_user_gallery'||request.path[-18..-1]=='show_user_bookmark'
     end
     
+    def alert_type(message)
+        case message.to_s
+            when "notice"
+                "success"
+            when "alert"
+                "warning"
+            when "error"
+                "danger"
+            else
+                "info"
+        end
+    end
+    
+    def comment_info(comment)
+        ", editted at #{comment.updated_at}" unless comment.created_at == comment.updated_at
+    end
+    
 end

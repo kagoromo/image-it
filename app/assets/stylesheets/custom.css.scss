@@ -22,7 +22,7 @@ section {
 }
 
 textarea {
-  resize: vertical;
+  resize: none;
 }
 
 .center {
@@ -319,4 +319,11 @@ input {
 #session_remember_me {
   width: auto;
   margin-left: 0;
+}
+
+/* image page */
+.image_body {
+  border-style: solid;
+  border-width: 1px;
+  border-color: red;
 }
