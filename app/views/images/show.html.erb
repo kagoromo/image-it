@@ -11,7 +11,7 @@
   <div class="col-md-9 right-part">
     
     <h3><%= @image.name %></h3>
-    <div class="jumbotron">
+    <div class="jumbotron", style="text-align: center">
       <p>
         <%= image_tag @image.file, class: "img-responsive" %>
       </p>
@@ -19,9 +19,9 @@
       <div>
         <h3><%= @image.title %></h3>
         
-        <p>
+        <div style="text-align: left">
           <%= @image.detail %>
-        </p>
+        </div>
       </div>
       
       <hr />
@@ -29,35 +29,37 @@
         <i>On <%= @image.created_at %></i>
       </div>
     </div>
-    <div class="bookmark">
-      <span class="bookmark-num"><%= @image.get_upvotes.size %></span>
+
       <% if user_signed_in? %>
-        
-        <% unless current_user.liked? @image %>
-          <%= link_to like_image_path(@image), class: "bookmark", method: :put do %>
-            <span class="twa twa-green-apple twa-4x"></span>
-            <div class="label label-info">Bookmark</div>
+      <div style="text-align:right; float:right">
+        <% if @image.user_id==current_user.id %>
+          <%= link_to 'Edit', edit_image_path(@image), class: "btn btn-md btn-info button" %> 
+          <%= link_to "Delete", destroy_image_path(@image.id), data: { confirm: "Are you sure?" }, method: :delete,
+                      class: "btn btn-md btn-danger button" %>
+        <% end %>
+      </div>
+      <% end %>
+      
+      <div class="bookmark">
+        <span class="bookmark-num"><%= @image.get_upvotes.size %></span>
+        <% if user_signed_in? %>
+          
+          <% unless current_user.liked? @image %>
+            <%= link_to like_image_path(@image), class: "bookmark", method: :put do %>
+              <span class="twa twa-green-apple twa-4x"></span>
+              <div class="label label-info">Bookmark</div>
+            <% end %>
+          <% else %>
+            <%= link_to dislike_image_path(@image), class: "bookmark", method: :put do %>
+              <span class="twa twa-apple twa-4x"></span>
+              <div class="label label-info">Unbookmark</div>
+            <% end %>
           <% end %>
         <% else %>
-          <%= link_to dislike_image_path(@image), class: "bookmark", method: :put do %>
-            <span class="twa twa-apple twa-4x"></span>
-            <div class="label label-info">Unbookmark</div>
-          <% end %>
+          <span class="twa twa-apple twa-4x"></span>
+          <div class="label label-info">Bookmarked</div>
         <% end %>
-      <% else %>
-        <span class="twa twa-apple twa-4x"></span>
-        <div class="label label-info">Bookmarked</div>
-      <% end %>
-    </div>
-    
-    <% if user_signed_in? %>
-      <% if @image.user_id==current_user.id %>
-        <%= link_to 'Edit', edit_image_path(@image), class: "btn btn-md btn-info button" %> 
-        <%= link_to "Delete", destroy_image_path(@image.id), data: { confirm: "Are you sure?" }, method: :delete,
-                    class: "btn btn-md btn-danger button" %>
-      <% end %>
-    <% end %>
-    
+      </div>
     <hr />
     
     <%= render 'image_comments/show' %>

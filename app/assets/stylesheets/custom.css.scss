@@ -190,11 +190,9 @@ p {
 
 /* bookmark */
 .bookmark {
-  margin-bottom: 3px;
   div {
     font-size: 14px;
     display: none;
-    margin-top: 10px;
   }
   span:hover + div{
     display: inline;
@@ -326,4 +324,8 @@ input {
   border-style: solid;
   border-width: 1px;
   border-color: red;
+}
+
+.image-detail {
+  min-height: 500px;
 }
