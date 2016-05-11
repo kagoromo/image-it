@@ -2,7 +2,11 @@
   <%= link_to image.name, image_path(id: image.id) %> 
 </div>
 <div class="user-name">
-  <%= link_to image.title, image_path(id: image.id) %> 
+  <% if image.title.blank? %>
+    <%= link_to "<No title>", image_path(id: image.id) %> 
+  <% else %>
+    <%= link_to image.title, image_path(id: image.id) %> 
+  <% end %>
 </div>
 <div class="user-name">
   By <% if image.user.name.empty? %>

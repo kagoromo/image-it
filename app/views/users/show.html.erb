@@ -8,9 +8,9 @@
     
     <div class="col-md-9 right-part">
         <h3><%= user_name(@user) %>'s Gallery</h3>
-        <iframe src=<%= users_show_user_gallery_path(@user.id) %>></iframe>
+        <%= render "show_user_gallery" %>
         <hr/>
         <h3><%= user_name(@user) %>'s Bookmarked Images</h3>
-        <iframe src=<%= users_show_user_bookmark_path %>></iframe>
+        <%= render "show_user_bookmark" %>
     </div>
 </div>
